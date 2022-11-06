@@ -13,6 +13,6 @@ RUN ./mvnw clean install
 # Run stage
 FROM ${RUNTIME_IMAGE} as runner
 WORKDIR /app
-EXPOSE 8000
+EXPOSE 8001
 COPY --from=builder /app/target/*.jar /app/*.jar
 ENTRYPOINT ["java", "-Dspring.profiles.active=docker", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/*.jar" ]
