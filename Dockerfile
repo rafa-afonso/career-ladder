@@ -1,16 +1,13 @@
-ARG BUILD_IMAGE=eclipse-temurin:17-jdk-jammy
+ARG BUILD_IMAGE=maven:3.8-eclipse-temurin-17
 ARG RUNTIME_IMAGE=eclipse-temurin:17-jre-jammy
 
 # Build stage
 FROM ${BUILD_IMAGE} as builder
 WORKDIR /app
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN apt-get update && apt-get install dos2unix
-RUN dos2unix mvnw
-RUN ./mvnw dependency:resolve-plugins dependency:go-offline -B
+COPY pom.xml ./
+RUN mvn dependency:resolve-plugins dependency:go-offline -B
 COPY src ./src
-RUN ./mvnw clean install
+RUN mvn clean install
 
 # Run stage
 FROM ${RUNTIME_IMAGE} as runner
