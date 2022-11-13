@@ -6,6 +6,8 @@ FROM ${BUILD_IMAGE} as builder
 WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
+RUN apt-get update && apt-get install dos2unix
+RUN dos2unix mvnw
 RUN ./mvnw dependency:resolve-plugins dependency:go-offline -B
 COPY src ./src
 RUN ./mvnw clean install
