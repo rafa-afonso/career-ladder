@@ -1,0 +1,17 @@
+version: "3.9"
+
+x-common-env: &config_env
+  PROP:
+
+services:
+  app:
+    image: kotlin-template:latest
+    container_name: kotlin-template
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      <<: *config_env
+      PROP1:
