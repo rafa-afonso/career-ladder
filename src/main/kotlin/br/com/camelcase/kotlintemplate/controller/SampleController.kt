@@ -10,7 +10,10 @@ class SampleController {
 
     @GetMapping
     fun sampleGet(): String {
-        return "Hello camelCase World!"
+        val primo: String = System.getenv("DB_HOST") ?: ""
+        val seccondo: String = System.getenv("PROP1") ?: ""
+
+        return "Hello camelCase World! $primo || $seccondo"
     }
 
 }
