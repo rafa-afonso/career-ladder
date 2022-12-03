@@ -5,7 +5,7 @@ x-common-env: &config_env
 
 services:
   app:
-    image: kotlin-template:latest
+    image: kotlin-template:0.0.1-SNAPSHOT
     container_name: kotlin-template
     build:
       context: .
