@@ -8,4 +8,4 @@ CONFIG=.env.dev
 # CONFIG=.env.prod
 
 COMMAND="docker compose --env-file ./environment/$CONFIG"
-$COMMAND $@
+$COMMAND "$@"
