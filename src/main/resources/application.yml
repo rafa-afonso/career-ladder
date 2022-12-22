@@ -3,4 +3,4 @@ server:
 
 # Hierarquia => OFF, FATAL, ERROR, WARN, INFO, DEBUG, TRACE
 logging.level:
-  br.com.camelcase: TRACE
+  br.com.camelcase: ${LOG_LEVEL:-TRACE}

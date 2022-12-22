@@ -2,6 +2,7 @@ version: "3.9"
 
 x-common-env: &config_env
   DB_HOST: db
+  LOG_LEVEL: ${LOG_LEVEL}
 
 services:
   app:
