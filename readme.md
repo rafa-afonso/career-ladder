@@ -22,6 +22,11 @@ Para executar o build normal, basta usar o script assitencial `docker-compose-en
 
 ### Build Native AOT
 
+#### Pré-requisitos:
+
+- Maven 3.8
+- Java JDK 17
+
 Para executar o build via Spring Native com Ahead of Time:
 
 1. Execute o comando na raiz do projeto: `mvn -Pnative spring-boot:build-image`
