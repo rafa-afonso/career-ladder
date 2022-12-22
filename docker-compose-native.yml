@@ -1,0 +1,15 @@
+version: "3.9"
+
+x-common-env: &config_env
+  DB_HOST: db
+
+services:
+  app:
+    image: kotlin-template:0.0.1-SNAPSHOT
+    container_name: kotlin-template
+    ports:
+      - ${HOST_PORT:-8000}:8000
+    environment:
+      <<: *config_env
+      DB_HOST: db_host
+      PROP1: ${ENV_TYPE}
