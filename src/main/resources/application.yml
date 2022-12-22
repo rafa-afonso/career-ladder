@@ -1,2 +1,6 @@
 server:
   port: 8000
+
+# Hierarquia => OFF, FATAL, ERROR, WARN, INFO, DEBUG, TRACE
+logging.level:
+  br.com.camelcase: ${LOG_LEVEL:-TRACE}
